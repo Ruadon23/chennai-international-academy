@@ -26,12 +26,25 @@ export const metadata: Metadata = {
     template: `%s | ${site.name}`,
   },
   description: site.description,
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+  },
   openGraph: {
     type: "website",
     siteName: site.name,
     title: site.name,
     description: site.description,
     locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: site.name,
+    description: site.description,
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 

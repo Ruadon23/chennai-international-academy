@@ -37,7 +37,7 @@ export const aboutData = {
         year: "2022",
         title: "Residential Boarding Community",
         description:
-          "Opened state-of-the-art boarding houses fostering independence, communal responsibility, and cross-cultural fellowship among students from across India and abroad.",
+          "Opened state-of-the-art boarding houses cultivating independence, communal responsibility, and cross-cultural fellowship among students from across India and abroad.",
       },
       {
         year: "Today",

@@ -16,7 +16,7 @@ export const site = {
   /** Shown in the utility bar. Fictional — not a real affiliation. */
   affiliationNote: "Demo school · Fictional affiliations",
   contact: {
-    address: ["123 Academy Road", "Chennai, Tamil Nadu 600 000", "India"],
+    address: ["123 Academy Road, Off OMR", "Chennai, Tamil Nadu 600 119", "India"],
     phone: "+91 00000 00000",
     phoneHref: "tel:+910000000000",
     email: "admissions@cia-demo.example",

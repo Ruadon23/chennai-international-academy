@@ -17,6 +17,9 @@ export function GalleryViewer() {
 
   useEffect(() => {
     if (!activeItem) return;
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setActiveItem(null);
       if (e.key === "ArrowRight") {
@@ -29,7 +32,10 @@ export function GalleryViewer() {
       }
     };
     document.addEventListener("keydown", onKey);
-    return () => document.removeEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      document.removeEventListener("keydown", onKey);
+    };
   }, [activeItem, filtered]);
 
   return (
@@ -58,8 +64,17 @@ export function GalleryViewer() {
         {filtered.map((item) => (
           <article
             key={item.id}
+            role="button"
+            tabIndex={0}
+            aria-label={`View ${item.title}`}
             onClick={() => setActiveItem(item)}
-            className="group cursor-pointer rounded-card border border-hairline bg-surface p-4 shadow-card hover:shadow-card-hover transition-all duration-300"
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                setActiveItem(item);
+              }
+            }}
+            className="group cursor-pointer rounded-card border border-hairline bg-surface p-4 shadow-card hover:shadow-card-hover transition-all duration-300 focus-visible:outline-2 focus-visible:outline-brass"
           >
             <div className="relative overflow-hidden rounded-card">
               <ImageFrame name={item.image} framed={false} sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw" />
