@@ -10,22 +10,26 @@ import { cn } from "@/lib/cn";
 export function ImageFrame({
   name,
   priority = false,
+  framed = true,
   sizes = "(min-width: 1024px) 40vw, 100vw",
   className,
 }: {
   name: ImageKey;
   priority?: boolean;
+  /** Adds the offset brass architectural frame. */
+  framed?: boolean;
   sizes?: string;
   className?: string;
 }) {
   const image = images[name];
   return (
-    <figure className={cn("relative", className)}>
-      {/* Architectural offset frame */}
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute -bottom-3 -right-3 top-3 left-3 border border-brass/60"
-      />
+    <figure className={cn("group relative", className)}>
+      {framed && (
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute -bottom-3 -right-3 left-3 top-3 border border-brass/60"
+        />
+      )}
       <div
         className="relative overflow-hidden rounded-card bg-sand"
         style={{ aspectRatio: image.aspect }}
@@ -37,18 +41,23 @@ export function ImageFrame({
             fill
             sizes={sizes}
             priority={priority}
-            className="object-cover"
+            className="object-cover transition-transform duration-500 ease-cia group-hover:scale-[1.03]"
           />
         ) : (
           <div
             role="img"
             aria-label={image.alt}
-            className="flex h-full w-full flex-col items-center justify-center gap-3 bg-[linear-gradient(135deg,var(--color-sand),var(--color-hairline))] p-6 text-center"
+            className="relative flex h-full w-full flex-col items-center justify-center gap-3 bg-[linear-gradient(160deg,var(--color-sand),var(--color-hairline))] p-6 text-center"
           >
+            {/* Architectural grid lines */}
+            <span
+              aria-hidden="true"
+              className="absolute inset-4 border border-navy/10"
+            />
             <svg
               aria-hidden="true"
               viewBox="0 0 48 48"
-              className="h-10 w-10 text-oxford/40"
+              className="relative h-10 w-10 text-oxford/40"
               fill="none"
               stroke="currentColor"
               strokeWidth="1.5"
@@ -57,7 +66,7 @@ export function ImageFrame({
               <circle cx="17" cy="20" r="3" />
               <path d="m6 34 11-9 9 7 6-5 10 8" />
             </svg>
-            <span className="text-xs font-medium uppercase tracking-[0.14em] text-muted">
+            <span className="relative text-xs font-medium uppercase tracking-[0.14em] text-muted">
               {image.label}
             </span>
           </div>

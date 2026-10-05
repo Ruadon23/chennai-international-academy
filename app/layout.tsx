@@ -42,6 +42,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${cormorant.variable} ${jakarta.variable} antialiased`}
     >
       <body className="flex min-h-screen flex-col">
+        <noscript>
+          <style>{`.reveal{opacity:1!important;transform:none!important}`}</style>
+        </noscript>
         <a href="#main" className="skip-link">
           Skip to main content
         </a>

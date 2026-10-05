@@ -1,5 +1,6 @@
 import { cn } from "@/lib/cn";
 
+/** Must be rendered inside a <dl>. */
 export function Stat({
   value,
   label,
@@ -12,15 +13,7 @@ export function Stat({
   className?: string;
 }) {
   return (
-    <div className={cn("flex flex-col gap-1", className)}>
-      <dd
-        className={cn(
-          "font-display text-5xl font-semibold leading-none",
-          tone === "light" ? "text-cream" : "text-navy",
-        )}
-      >
-        {value}
-      </dd>
+    <div className={cn("flex flex-col-reverse justify-end gap-2", className)}>
       <dt
         className={cn(
           "text-[13px] md:text-sm",
@@ -29,6 +22,14 @@ export function Stat({
       >
         {label}
       </dt>
+      <dd
+        className={cn(
+          "font-display text-4xl font-semibold leading-[1.05] md:text-5xl",
+          tone === "light" ? "text-cream" : "text-navy",
+        )}
+      >
+        {value}
+      </dd>
     </div>
   );
 }

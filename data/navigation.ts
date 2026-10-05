@@ -52,7 +52,7 @@ export const mainNav: NavItem[] = [
 ];
 
 export const navCtas = {
-  inquire: { label: "Inquire", href: "/contact" },
-  tour: { label: "Schedule a Tour", href: "/admissions#tour" },
+  inquire: { label: "Inquire", href: "/#admissions" },
+  tour: { label: "Schedule a Tour", href: "/#visit" },
   call: { label: "Call Admissions", href: "tel:+910000000000" },
 };
