@@ -1,3 +1,4 @@
+import { navLinkClass } from "@/lib/nav-styles";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Crest } from "@/components/Crest";
@@ -23,7 +24,7 @@ export function Navbar() {
                   <li key={item.label}>
                     <Link
                       href={item.href}
-                      className="flex min-h-11 items-center px-3 text-sm font-medium text-navy transition-colors duration-200 hover:text-brass-hover"
+                      className={navLinkClass}
                     >
                       {item.label}
                     </Link>

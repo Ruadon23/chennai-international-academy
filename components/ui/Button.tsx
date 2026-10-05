@@ -5,17 +5,17 @@ import { cn } from "@/lib/cn";
 type Variant = "primary" | "secondary" | "accent" | "editorial" | "inverse";
 
 const base =
-  "inline-flex items-center justify-center gap-2 font-medium transition-[background-color,transform,color,box-shadow] duration-200 ease-cia focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brass";
+  "inline-flex items-center justify-center gap-2 font-medium transition-[background-color,border-color,transform,color,box-shadow] duration-200 ease-cia focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brass";
 
 const variants: Record<Variant, string> = {
   primary:
-    "min-h-11 rounded-button bg-navy px-6 py-3 text-cream hover:-translate-y-0.5 hover:bg-oxford",
+    "min-h-11 rounded-button bg-navy px-6 py-3 text-cream hover:-translate-y-0.5 hover:bg-oxford hover:shadow-card-hover",
   secondary:
     "min-h-11 rounded-button border border-navy bg-transparent px-6 py-3 text-navy hover:bg-sand",
   accent:
-    "min-h-11 rounded-button bg-brass px-6 py-3 font-semibold text-navy hover:-translate-y-0.5 hover:bg-brass-hover",
+    "min-h-11 rounded-button bg-brass px-6 py-3 font-semibold text-navy hover:-translate-y-0.5 hover:bg-brass-hover hover:shadow-card-hover",
   editorial:
-    "group min-h-11 border-b border-brass py-1 text-navy hover:border-b-2",
+    "group min-h-11 border-b border-brass/60 py-1 text-navy hover:border-brass",
   inverse:
     "min-h-11 rounded-button border border-cream/70 bg-transparent px-6 py-3 text-cream hover:bg-cream/10",
 };
